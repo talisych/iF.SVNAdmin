@@ -19,6 +19,16 @@ function h($value)
   return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
+/**
+ * Escapes text which may already contain escaped parts, e.g. exception
+ * messages built with tr() (escaped arguments) or from raw input.
+ * The result is escaped exactly once.
+ */
+function h_once($value)
+{
+  return h(html_entity_decode((string)$value, ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+}
+
 ////////////////////////////////////////////////////////////////////////
 // CSRF PROTECTION
 ////////////////////////////////////////////////////////////////////////

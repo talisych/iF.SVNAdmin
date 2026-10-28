@@ -28,7 +28,7 @@
 				<div class="top-message-content">
 					<ul>
 						<?php foreach (AppEngine()->getExceptions() as $item) : ?>
-						<li><?php print(h($item->getMessage())); ?></li>
+						<li><?php print(h_once($item->getMessage())); ?></li>
 						<?php endforeach; ?>
 					</ul>
 				</div>
